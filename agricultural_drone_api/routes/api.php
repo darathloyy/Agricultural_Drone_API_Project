@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\DroneController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,4 @@ Route::middleware('auth:sanctum')->group( function () {
 
 Route::post('/login',[AuthenticationController::class, 'login']);
 Route::post('/register',[AuthenticationController::class, 'register']);
+
