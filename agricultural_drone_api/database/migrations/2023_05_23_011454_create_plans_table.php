@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
             $table->string('type');
-            $table->string("datetime");
+            $table->date("date");
+            $table->time("time");
             $table->string("area");
             $table->string("density");
             $table->timestamps();

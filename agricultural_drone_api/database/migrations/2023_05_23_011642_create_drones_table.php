@@ -25,10 +25,10 @@ return new class extends Migration
                 ->foreign('location_id')
                 ->reference('id')
                 ->on('locations');
-            $table->unsignedBigInteger('farmer_id')
-                ->foreign('farmer_id')
+            $table->unsignedBigInteger('user_id')
+                ->foreign('user_id')
                 ->reference('id')
-                ->on('farmers');
+                ->on('users');
             $table->timestamps();
         });
     }
