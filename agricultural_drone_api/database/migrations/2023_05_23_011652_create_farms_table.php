@@ -16,12 +16,12 @@ return new class extends Migration
             $table->string('name');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
-                ->reference('id')
+                ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
             $table->unsignedBigInteger('province_id');
             $table->foreign('province_id')
-                ->reference('id')
+                ->references('id')
                 ->on('provinces')
                 ->onDelete('cascade');
             $table->timestamps();

@@ -19,21 +19,20 @@ return new class extends Migration
             $table->integer('price');
             $table->unsignedBigInteger('type_drone_id')
                 ->foreign('type_drone_id')
-                ->reference('id')
+                ->references('id')
                 ->on('type_drones');
             $table->unsignedBigInteger('location_id')
                 ->foreign('location_id')
-                ->reference('id')
+                ->references('id')
                 ->on('locations');
             $table->unsignedBigInteger('user_id')
                 ->foreign('user_id')
-                ->reference('id')
+                ->references('id')
                 ->on('users');
             $table->timestamps();
         });
     }
 
-    
     /**
      * Reverse the migrations.
      */
