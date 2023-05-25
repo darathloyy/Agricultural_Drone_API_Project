@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image');
-            $table->unsignedBigInteger('farm_id')
-                ->foreign('farm_id')
+            $table->unsignedBigInteger('farm_id');
+            $table->foreign('farm_id')
                 ->reference('id')
                 ->on('farms')
                 ->onDelete('cascade');
-            $table->unsignedBigInteger('drone_id')
-                ->foreign('drone_id')
+            $table->unsignedBigInteger('drone_id');
+            $table->foreign('drone_id')
                 ->reference('id')
                 ->on('drones')
                 ->onDelete('cascade');

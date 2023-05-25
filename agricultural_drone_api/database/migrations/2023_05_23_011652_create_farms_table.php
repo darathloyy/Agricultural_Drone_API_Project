@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('farms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('user_id')
-                ->foreign('user_id')
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
                 ->reference('id')
                 ->on('users')
                 ->onDelete('cascade');
-            $table->unsignedBigInteger('province_id')
-                ->foreign('province_id')
+            $table->unsignedBigInteger('province_id');
+            $table->foreign('province_id')
                 ->reference('id')
                 ->on('provinces')
                 ->onDelete('cascade');
