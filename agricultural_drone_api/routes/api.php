@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\DroneController;
+use App\Http\Controllers\MapController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,10 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('/logout',[AuthenticationController::class, 'logout']);
 });
 
+Route::get('/farm/{id}', [MapController::class,"farm"]);
+Route::get('/map_province_farm/{id}', [MapController::class,"mapProvinceFarm"]);
+Route::resource('maps', MapController::class);
+Route::get('maps/{name}/{id}', [MapController::class, 'show']);
 Route::post('/login',[AuthenticationController::class, 'login']);
 Route::post('/register',[AuthenticationController::class, 'register']);
 

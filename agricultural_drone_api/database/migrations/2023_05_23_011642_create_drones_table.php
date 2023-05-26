@@ -17,16 +17,16 @@ return new class extends Migration
             $table->string('manufacturer');
             $table->string('payload');
             $table->integer('price');
-            $table->unsignedBigInteger('type_drone_id')
-                ->foreign('type_drone_id')
+            $table->unsignedBigInteger('type_drone_id');
+            $table->foreign('type_drone_id')
                 ->references('id')
                 ->on('type_drones');
-            $table->unsignedBigInteger('location_id')
-                ->foreign('location_id')
+            $table->unsignedBigInteger('location_id');
+            $table->foreign('location_id')
                 ->references('id')
                 ->on('locations');
-            $table->unsignedBigInteger('user_id')
-                ->foreign('user_id')
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
                 ->references('id')
                 ->on('users');
             $table->timestamps();

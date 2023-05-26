@@ -15,7 +15,7 @@ class MapSeeder extends Seeder
     {
         //
         $maps=[
-            ['name' => 'Map of City', 'image' => 'http://example.com/city_map.jpg', 'farm_id'=>1,'drone_id'=>1],
+            ['name' => 'Map of City', 'image' => 'http://example.com/city_map.jpg', 'farm_id'=>7,'drone_id'=>1],
             ['name' => 'Island Map', 'image' => 'http://example.com/island_map.jpg', 'farm_id'=>1,'drone_id'=>1],
             ['name' => 'Topographic', 'image' => 'http://example.com/topgraphic_map.jpg', 'farm_id'=>1,'drone_id'=>1],
             ['name' => 'Historical', 'image' => 'http://example.com/historical_map.jpg', 'farm_id'=>1,'drone_id'=>1],

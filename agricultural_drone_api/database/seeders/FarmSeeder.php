@@ -20,6 +20,8 @@ class FarmSeeder extends Seeder
             ['name'=>'Farm C','user_id'=>1,'province_id'=>1],
             ['name'=>'Farm D','user_id'=>3,'province_id'=>2],
             ['name'=>'Farm E','user_id'=>2,'province_id'=>1],
+            ['name'=>'Farm F','user_id'=>2,'province_id'=>1],
+            ['name'=>'Farm G','user_id'=>2,'province_id'=>1],
         ];
         Farm::insert($farms);
     }
