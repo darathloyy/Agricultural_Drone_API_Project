@@ -12,6 +12,8 @@ use App\Models\Province;
 use Database\Seeders\MapSeeder;
 use Illuminate\Http\Request;
 
+use function PHPSTORM_META\map;
+
 class MapController extends Controller
 {
     /**
@@ -39,6 +41,9 @@ class MapController extends Controller
         $map = MapResource::collection($map);
         return response()->json(['massege' => 'success', 'data' => $map], 200);
     }
+        /**
+     * Display list map by input name of province and specific id of farm ===============================================.
+     */
 
     public function show(string $province_name, string $farm_id)
     {
@@ -58,6 +63,32 @@ class MapController extends Controller
         }
         return response()->json(["message" => "Map not Found"], 401);
     }
+     /**
+     * Delete list map by input name of province and specific id of farm ===============================================.
+     */
+
+    public function deleteMap(string $province_name, string $farm_id)
+    {
+        $province = Province::where("name", $province_name)->get();
+        if ($province->count() > 0) {
+            $province = new ProvinceResource($province[0]);
+            $farms = FarmProvinceResource::collection($province["farms"]);
+            foreach ($farms as $farm) {
+                if ($farm["id"] == $farm_id) {
+                    $farm = new FarmResource(Farm::find($farm_id));
+                    $maps = MapResource::collection($farm["maps"]);
+                    if (count($maps) > 0) {
+                        foreach ($maps as $map){
+                            $map->delete();
+                        }
+                    return response()->json(['message' => 'successful'], 200);
+                    }
+                }
+            }
+        }
+        return response()->json(["message" => "Map not Found"], 401);
+    }
+
 
     /**
      * Store a newly created resource in storage.

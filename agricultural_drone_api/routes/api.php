@@ -27,11 +27,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware('auth:sanctum')->group( function () {
     Route::post('/logout',[AuthenticationController::class, 'logout']);
 });
-
+//route get farm with id===========================================================================
 Route::get('/farm/{id}', [MapController::class,"farm"]);
-Route::get('/map_province_farm/{id}', [MapController::class,"mapProvinceFarm"]);
-Route::resource('maps', MapController::class);
-Route::get('maps/{name}/{id}', [MapController::class, 'show']);
-Route::post('/login',[AuthenticationController::class, 'login']);
-Route::post('/register',[AuthenticationController::class, 'register']);
 
+// route resource api of maps====================================================================
+Route::resource('maps', MapController::class);
+
+// route get map by name of provice and farm id======================================================
+Route::get('maps/{name}/{id}', [MapController::class, 'show']);
+
+// route get maps by name of provice and farm id======================================================
+Route::delete('maps/{name}/{id}', [MapController::class, 'deleteMap']);
+
+// route delete maps by name of provice and farm id======================================================
+Route::post('/login',[AuthenticationController::class, 'login']);
+
+// route create register farm==========================================================================
+Route::post('/register',[AuthenticationController::class, 'register']);
