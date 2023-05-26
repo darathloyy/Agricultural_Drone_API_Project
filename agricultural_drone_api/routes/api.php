@@ -39,6 +39,9 @@ Route::get('maps/{name}/{id}', [MapController::class, 'show']);
 // route get maps by name of provice and farm id======================================================
 Route::delete('maps/{name}/{id}', [MapController::class, 'deleteMap']);
 
+// route create newly map by name of provice and farm id======================================================
+Route::post('maps/{name}/{id}', [MapController::class, 'store']);
+
 // route delete maps by name of provice and farm id======================================================
 Route::post('/login',[AuthenticationController::class, 'login']);
 
