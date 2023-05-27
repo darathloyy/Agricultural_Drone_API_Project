@@ -14,7 +14,7 @@ class ProvinceSeeder extends Seeder
     public function run(): void
     {
         //
-        $provinces=[
+        $provinces = [
             ['name' => 'Kampong Chhnang'],
             ['name' => 'Kampong Cham'],
             ['name' => 'Kampong Thom'],

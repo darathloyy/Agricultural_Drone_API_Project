@@ -14,14 +14,14 @@ class FarmSeeder extends Seeder
     public function run(): void
     {
         //
-        $farms=[
-            ['name'=>'Farm A','user_id'=>1,'province_id'=>2],
-            ['name'=>'Farm B','user_id'=>2,'province_id'=>1],
-            ['name'=>'Farm C','user_id'=>1,'province_id'=>1],
-            ['name'=>'Farm D','user_id'=>3,'province_id'=>2],
-            ['name'=>'Farm E','user_id'=>2,'province_id'=>1],
-            ['name'=>'Farm F','user_id'=>2,'province_id'=>1],
-            ['name'=>'Farm G','user_id'=>2,'province_id'=>1],
+        $farms = [
+            ['name' => 'Farm A', 'user_id' => 1, 'province_id' => 2],
+            ['name' => 'Farm B', 'user_id' => 1, 'province_id' => 1],
+            ['name' => 'Farm C', 'user_id' => 1, 'province_id' => 1],
+            ['name' => 'Farm D', 'user_id' => 1, 'province_id' => 2],
+            ['name' => 'Farm E', 'user_id' => 1, 'province_id' => 1],
+            ['name' => 'Farm F', 'user_id' => 1, 'province_id' => 1],
+            ['name' => 'Farm G', 'user_id' => 1, 'province_id' => 2],
         ];
         Farm::insert($farms);
     }

@@ -16,6 +16,8 @@ class PlanController extends Controller
     public function index()
     {
         //
+        $plans=Plan::all();
+        return response()->json(['message' => 'success', 'plans' => $plans],200);
     }
 
     /**
@@ -30,7 +32,7 @@ class PlanController extends Controller
             'date'=>'required',
             'time' =>'required|unique:plans',
             'area' =>'required',
-            'desity'=>'required',
+            'density'=>'required',
         ]);
         if($validator->fails()){
             return response()->json(['message'=>$validator->errors()],404);
@@ -43,10 +45,12 @@ class PlanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Plan $plan)
+    public function show($name)
     {
         //
-
+        $plan = Plan::where('name', $name)->first();
+        $plan = new PlanResource($plan);
+        return response()->json(['message' => 'success', 'data' => $plan], 200);
 
     }
 
@@ -64,12 +68,5 @@ class PlanController extends Controller
     public function destroy(Plan $plan)
     {
         //
-    }
-
-    public function getPlanDetail($name)
-    {
-        $plan = Plan::where('name', $name)->first();
-        $planResource = new PlanResource($plan);
-        return response()->json(['message' => 'success', 'data' => $planResource], 200);
     }
 }

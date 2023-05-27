@@ -54,6 +54,7 @@ class DroneController extends Controller
     {
         //
         $drone=Drone::find($id);
+        $drone=new DroneDetailResource($drone);
         return response()->json(['message' => 'success', 'data' => $drone],200);
     }
 

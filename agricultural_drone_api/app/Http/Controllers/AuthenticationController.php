@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class AuthenticationController extends Controller
@@ -13,7 +14,8 @@ class AuthenticationController extends Controller
      * Display a listing of the resource.
      */
     public function register(Request $request)
-    {
+    { 
+        //   return $request;
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|unique:users,email',
@@ -26,7 +28,7 @@ class AuthenticationController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password)
+            'password' =>Hash::make($request->password)
         ]);
         $token = $user->createToken('API Token', ['select', 'create', 'delete', 'update'])->plainTextToken;
         return response()->json([

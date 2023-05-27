@@ -14,12 +14,12 @@ class TypeDroneSeeder extends Seeder
     public function run(): void
     {
         //
-        $type_drone=[
-            ['name'=>'Harvesting'],
-            ['name'=>'Spraying'],
-            ['name'=>'Mapping'],
-            ['name'=>'Sensing'],
-           
+        $type_drone = [
+            ['name' => 'Harvesting'],
+            ['name' => 'Spraying'],
+            ['name' => 'Mapping'],
+            ['name' => 'Sensing'],
+
         ];
         Type_drone::insert($type_drone);
     }
