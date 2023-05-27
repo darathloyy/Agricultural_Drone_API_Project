@@ -15,11 +15,11 @@ class InstructionSeeder extends Seeder
     {
         //
         $instructions=[
-            ['time_start'=>'07:00:00','time_end'=>'08:00:00','status'=>'good','feedback'=>'not issuse','drone_id'=>1,'plan_id'=>3],
-            ['time_start'=>'09:00:00','time_end'=>'10:00:00','status'=>'nice','feedback'=>'not issuse','drone_id'=>1,'plan_id'=>2],
-            ['time_start'=>'06:30:00','time_end'=>'7:30:00','status'=>'nothing to say ','feedback'=>'not issuse','drone_id'=>1,'plan_id'=>2],
-            ['time_start'=>'08:45:00','time_end'=>'90:10:00','status'=>'simple','feedback'=>'not issuse','drone_id'=>1,'plan_id'=>5],
-            ['time_start'=>'09:00:00','time_end'=>'10:00:00','status'=>'amazing','feedback'=>'not issuse','drone_id'=>1,'plan_id'=>1],
+            ['run_mode'=>'processing','status'=>'good','feedback'=>'not issuse','drone_id'=>1,'plan_id'=>3],
+            ['run_mode'=>'processing','status'=>'nice','feedback'=>'not issuse','drone_id'=>1,'plan_id'=>1],
+            ['run_mode'=>'processing','status'=>'nothing to say ','feedback'=>'not issuse','drone_id'=>1,'plan_id'=>2],
+            ['run_mode'=>'processing','status'=>'simple','feedback'=>'not issuse','drone_id'=>1,'plan_id'=>5],
+            ['run_mode'=>'processing','status'=>'amazing','feedback'=>'not issuse','drone_id'=>1,'plan_id'=>1],
         ];
 
         Instruction::insert($instructions);

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Instruction extends Model
@@ -11,21 +12,20 @@ class Instruction extends Model
     use HasFactory;
 
     protected $fillable=[
-        'time_start',
-        'time_end',
+        'run_mode',
         'status',
         'feedback',
         'drone_id',
         'plan_id',
     ];
 
-    public function dron(): HasOne
+    public function drone(): BelongsTo
     {
-        return $this->hasOne(Drone::class);
+        return $this->belongsTo(Drone::class);
     }
     
-    public function plan(): HasOne
+    public function plan(): BelongsTo
     {
-        return $this->hasOne(Plan::class);
+        return $this->belongsTo(Plan::class);
     }
 }

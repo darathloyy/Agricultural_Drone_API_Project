@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -14,21 +15,25 @@ return new class extends Migration
         Schema::create('drones', function (Blueprint $table) {
             $table->id();
             $table->string('model');
+            $table->string('battery');
             $table->string('manufacturer');
             $table->string('payload');
             $table->integer('price');
-            $table->unsignedBigInteger('type_drone_id')
-                ->foreign('type_drone_id')
+            $table->unsignedBigInteger('type_drone_id');
+            $table->foreign('type_drone_id')
                 ->references('id')
-                ->on('type_drones');
-            $table->unsignedBigInteger('location_id')
-                ->foreign('location_id')
+                ->on('type_drones')
+                ->onDelete('cascade');
+            $table->unsignedBigInteger('location_id');
+            $table->foreign('location_id')
                 ->references('id')
-                ->on('locations');
-            $table->unsignedBigInteger('user_id')
-                ->foreign('user_id')
+                ->on('locations')
+                ->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

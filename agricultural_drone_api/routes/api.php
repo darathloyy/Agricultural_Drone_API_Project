@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\DroneController;
+use App\Http\Controllers\InstructionController;
+use App\Http\Controllers\PlanController;
+use App\Http\Resources\PlanResource;
+use App\Models\Instruction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +33,12 @@ Route::middleware('auth:sanctum')->group( function () {
 
 Route::post('/login',[AuthenticationController::class, 'login']);
 Route::post('/register',[AuthenticationController::class, 'register']);
+
+Route::resource('drones',DroneController::class);
+Route::resource('instructions',InstructionController::class);
+
+Route::get('drone/{id}',[DroneController::class,'getDroneLocation']);
+Route::get('plan/{name}',[PlanController::class,'getPlanDetail']);
+Route::put('drones/{id}',[InstructionController::class,'update']);
+
 

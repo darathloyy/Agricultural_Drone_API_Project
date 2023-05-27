@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Drone;
 use App\Models\Instruction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class InstructionController extends Controller
 {
@@ -13,6 +15,8 @@ class InstructionController extends Controller
     public function index()
     {
         //
+        $instructions=Instruction::all();
+        return response()->json(['message' =>'successfully','data'=>$instructions],200);
     }
 
     /**
@@ -29,14 +33,30 @@ class InstructionController extends Controller
     public function show(Instruction $instruction)
     {
         //
+        
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Instruction $instruction)
+    public function update(Request $request, $id)
     {
         //
+        $instruction=Instruction::find($id);
+        
+        $validator=Validator::make($request->all(),[
+            'run_mode' => 'required',
+            'status' =>'required',
+            'feedback' =>'required',
+            'drone_id' =>'required',
+            'plan_id'=>'required',
+        ]);
+        if($validator->fails()){
+            return response()->json(['message'=>$validator->errors()],404);
+        }else{
+            $instruction->update($validator->validated());
+            return response()->json(['message'=>'successfully created','data'=>$instruction],200);
+        }
     }
 
     /**

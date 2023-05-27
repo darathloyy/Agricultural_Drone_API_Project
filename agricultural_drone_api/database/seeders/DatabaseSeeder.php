@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(TypeDroneSeeder::class);
-        $this->call(ProvinceSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(ProvinceSeeder::class);
         $this->call(FarmSeeder::class);
         $this->call(LocationSeeder::class);
         $this->call(DroneSeeder::class);
